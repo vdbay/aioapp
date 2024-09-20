@@ -11,7 +11,7 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Obx(() => Text('VDBay All in One ${controller.isRooted}')),
+        title: Obx(() => Text('VDBay All in One (Rooted: ${controller.isRooted})')),
         centerTitle: true,
       ),
       body: Padding(
