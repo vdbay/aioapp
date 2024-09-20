@@ -32,7 +32,7 @@ class GamelauncherController extends GetxController {
     res = "$res\n${await RootCommand.run('device_config put game_overlay $packageName mode=2,downscaleFactor=0.7:mode=3,downscaleFactor=0.7,fps=90:mode=3,fps=90')}";
     res = "$res\n${await RootCommand.run('device_config put game_overlay $packageName mode=2,downscaleFactor=0.7:mode=3,downscaleFactor=0.7,fps=120:mode=3,fps=120')}";
     res = "$res\n${await RootCommand.run('cmd game mode performance $packageName')}";
-    res = "$res\n${await RootCommand.run('cmd power set-fixed-performance-mode-enabled true')}";
+    // res = "$res\n${await RootCommand.run('cmd power set-fixed-performance-mode-enabled true')}";
     // res = "$res\n${await RootCommand.run('cmd package compile -m everything -f $packageName')}";
     // await Vsnackbar.showVSnackbar('Success', "Enjoy!", vSnackBarType: VSnackBarType.success);
     res = "$res\n${await RootCommand.run('monkey -p $packageName 1')}";
