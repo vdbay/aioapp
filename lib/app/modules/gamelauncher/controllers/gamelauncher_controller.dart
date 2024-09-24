@@ -39,12 +39,12 @@ class GamelauncherController extends GetxController {
     res = "$res\n${await RootCommand.run('device_config put game_overlay $packageName mode=1,downscaleFactor=0.7,fps=120,loadingBoost=28800000,useAngle=true:mode=2,downscaleFactor=0.7,fps=120,loadingBoost=28800000,useAngle=true:mode=3,downscaleFactor=0.7,fps=120,loadingBoost=28800000,useAngle=true')}";
     // set game performance
     res = "$res\n${await RootCommand.run('cmd game mode performance $packageName')}";
-    // clear ART JIT
-    res = "$res\n${await RootCommand.run('pm compile --reset $packageName')}";
-    res = "$res\n${await RootCommand.run('pm art clear-app-profiles $packageName')}";
-    res = "$res\n${await RootCommand.run('cmd package compile -m verify -f $packageName')}";
-    // force ART JIT
-    res = "$res\n${await RootCommand.run('cmd package compile -m speed -f $packageName')}";
+    // // clear ART JIT
+    // res = "$res\n${await RootCommand.run('pm compile --reset $packageName')}";
+    // res = "$res\n${await RootCommand.run('pm art clear-app-profiles $packageName')}";
+    // res = "$res\n${await RootCommand.run('cmd package compile -m verify -f $packageName')}";
+    // // force ART JIT
+    // res = "$res\n${await RootCommand.run('cmd package compile -m speed -f $packageName')}";
     // launch
     res = "$res\n${await RootCommand.run('monkey -p $packageName 1')}";
     res = "$res\n${await RootCommand.sendNotificationAndToast('Running and optimized!: $packageName')}";
