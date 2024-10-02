@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:aioapp/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -13,8 +14,16 @@ class GamelauncherView extends GetView<GamelauncherController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Game Launcher'),
+        title: const Text('Game Space'),
         centerTitle: true,
+        actions: [
+          IconButton.outlined(
+            onPressed: () {
+              Get.toNamed(Routes.GAMESETTINGS);
+            },
+            icon: const Icon(Icons.tune_rounded),
+          )
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -28,14 +37,13 @@ class GamelauncherView extends GetView<GamelauncherController> {
                 itemBuilder: (context, index) {
                   return InkWell(
                     onTap: (controller.isLoading.value == false)
-                        ? () {
-                            controller.runSelected(snapshot.data?[index].packageName ?? "");
+                        ? () async {
+                            final gameSettings = await controller.getGameSettings();
+                            controller.runSelectedPackageWithGameSettings(snapshot.data?[index].packageName ?? "", settings: gameSettings);
                             Get.defaultDialog(
-                                barrierDismissible: false,
-                                title: 'Applying config...\nPlease dont click anything\nJust please wait...',
-                                content: const Center(
-                                  child: CircularProgressIndicator(),
-                                ));
+                              barrierDismissible: false,
+                              title: 'Applying ${snapshot.data?[index].packageName} configuration...',
+                            );
                           }
                         : null,
                     child: Container(

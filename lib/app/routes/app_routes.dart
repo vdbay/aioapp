@@ -7,10 +7,14 @@ abstract class Routes {
   Routes._();
   static const HOME = _Paths.HOME;
   static const GAMELAUNCHER = _Paths.GAMELAUNCHER;
+  static const CHARGING = _Paths.CHARGING;
+  static const GAMESETTINGS = _Paths.GAMESETTINGS;
 }
 
 abstract class _Paths {
   _Paths._();
   static const HOME = '/home';
   static const GAMELAUNCHER = '/gamelauncher';
+  static const CHARGING = '/charging';
+  static const GAMESETTINGS = '/gamesettings';
 }

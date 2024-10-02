@@ -36,13 +36,37 @@ class HomeView extends GetView<HomeController> {
                     ),
                     Expanded(
                       child: Text(
-                        "Game Launcher",
+                        "Game Space",
                       ),
                     )
                   ],
                 ),
               ),
-            )
+            ),
+            InkWell(
+              onTap: () {
+                Get.toNamed(Routes.CHARGING);
+              },
+              child: Container(
+                color: Colors.blueAccent,
+                padding: const EdgeInsets.all(16),
+                margin: const EdgeInsets.only(bottom: 16),
+                width: Get.width,
+                child: const Row(
+                  children: [
+                    Icon(Icons.battery_charging_full_rounded),
+                    SizedBox(
+                      width: 24,
+                    ),
+                    Expanded(
+                      child: Text(
+                        "Charging Control",
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
