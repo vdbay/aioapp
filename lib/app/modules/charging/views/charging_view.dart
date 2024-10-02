@@ -92,9 +92,10 @@ class ChargingView extends GetView<ChargingController> {
                           ),
                           Flexible(
                             child: DropdownMenu<String>(
-                              initialSelection: snapshot.data?.autocutEnable,
+                              initialSelection: snapshot.data?.bypassEnable,
+                              enabled: (snapshot.data?.bypassEnable == "1" || snapshot.data?.bypassEnable == "0") ? true : false,
                               onSelected: (String? value) async {
-                                await controller.setAutocutEnable("$value");
+                                await controller.setBypassEnable("$value");
                               },
                               dropdownMenuEntries: const [
                                 DropdownMenuEntry<String>(
